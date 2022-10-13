@@ -7,6 +7,8 @@ import {
   BsFillCartFill,
   BsFillLightbulbFill,
   BsHouseFill,
+  BsFillSkipStartFill,
+  BsHandThumbsUpFill
 } from "react-icons/bs";
 
 import { IoIosSettings } from "react-icons/io";
@@ -64,11 +66,10 @@ const CustomSidebar = () => {
                 width: "20px",
                 height: "20px",
                 marginBottom: "2px",
-                color: "white",
+                color: "yellow",
               }}
             />
-            <p style={{ display: "inline-block", marginLeft: "5px" }}>
-              {" "}
+            <p style={{ display: "inline-block", marginLeft: "5px",color:"yellow" }}>
               My Day
             </p>
           </a>
@@ -88,7 +89,7 @@ const CustomSidebar = () => {
         onClick={() => activateLasers()}
       >
         <BsFillStarFill
-          style={{ width: "20px", height: "20px", marginBottom: "5  px" }}
+          style={{ width: "20px", height: "20px", marginBottom: "5px" }}
         />
         <p style={{ display: "inline-block", marginLeft: "5px" }}>Important</p>
       </div>
@@ -166,10 +167,10 @@ const CustomSidebar = () => {
           </a>
         </Link>
       </div>
-  
+
       {/* End Task */}
 
-              {/* Divider */}
+      {/* Divider */}
       <div
         style={{
           backgroundColor: "grey",
@@ -178,8 +179,37 @@ const CustomSidebar = () => {
           marginTop: "20px",
         }}
       ></div>
-   {/* End Divider */}
+      {/* End Divider */}
 
+      {/* Getting Started */}
+      <div
+        style={{
+          backgroundColor: "transparent",
+          outline: "none",
+          border: "none",
+          width: "14vw",
+          height: "20px",
+          marginTop: "20px",
+        }}
+        onClick={() => activateLasers()}
+      >
+        <Link href="/GettingStarted">
+          <a>
+            <  BsHandThumbsUpFill
+              style={{
+                width: "20px",
+                height: "20px",
+                marginBottom: "5px",
+                color: "orange",
+              }}
+            />
+            <p style={{ display: "inline-block", marginLeft: "5px",color:"orange" }}>Getting Started</p>
+          </a>
+        </Link>
+      </div>
+      {/* End Getting Started */}
+
+      
       {/* Setting */}
       <div
         style={{
@@ -189,27 +219,27 @@ const CustomSidebar = () => {
           width: "14vw",
           height: "20px",
           marginTop: "20px",
-          position: "fixed",
-          bottom:"20px"
+          position: "absolute",
+          bottom: "20px",
         }}
         onClick={() => activateLasers()}
       >
-        <Link href="/Tasks">
+        <Link href="/Setting">
           <a>
             <IoIosSettings
               style={{
                 width: "20px",
                 height: "20px",
                 marginBottom: "5px",
-                color: "white",
+                color: "grey",
               }}
             />
-            <p style={{ display: "inline-block", marginLeft: "5px" }}>Setting</p>
+            <p style={{ display: "inline-block", marginLeft: "5px" }}>
+              Setting
+            </p>
           </a>
         </Link>
       </div>
- 
-
       {/* End Setting */}
     </div>
   );
