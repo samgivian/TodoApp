@@ -20,8 +20,25 @@ type Post{
 }
 type Query{
     posts:[Post]
-}`;
+}
 
+
+type Mutation {
+  addTodo(text:String):String
+}
+`;
+/*
+mutation AddNewPet ($name: String!, $petType: PetType) { 
+    addPet(name: $name, petType: $petType) { # mutation name
+      name
+      petType
+    }
+  }
+
+  type Mutation {
+    addPet (name: String!, petType: PetType): AddPetResult!
+  }
+  */
 const resolvers = {
     Query: {
         posts: () =>
@@ -31,7 +48,12 @@ const resolvers = {
           .once("value")
           .then(snap => snap.val())
           .then(val => Object.keys(val).map(key => val[key]))
-    }
+    },
+    Mutation: {
+      addTodo: async (root, args, context) => {
+          return args.text
+        }
+      }
   };
 
 
