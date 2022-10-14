@@ -19,12 +19,10 @@ type Post{
     Job:String
 }
 type Query{
-    posts:[Post]
+    posts:[Post]  
 }
-
-
 type Mutation {
-  addTodo(text:String):String
+  addTodo(text:String!):String!
 }
 `;
 /*
@@ -34,11 +32,10 @@ mutation AddNewPet ($name: String!, $petType: PetType) {
       petType
     }
   }
-
   type Mutation {
     addPet (name: String!, petType: PetType): AddPetResult!
   }
-  */
+*/
 const resolvers = {
     Query: {
         posts: () =>
@@ -51,13 +48,16 @@ const resolvers = {
     },
     Mutation: {
       addTodo: async (root, args, context) => {
-          return args.text
-        }
+        console.log("clicks");
+        console.log(args.text);
+        //admin.database().ref("Tasks/").push(args.text);
+          return ("SS")
+      }
       }
   };
 
 
-const app = express();
+
 async function startApolloServer(typeDefs, resolvers){
     const server = new ApolloServer({typeDefs, resolvers})
     const app = express();

@@ -2,6 +2,9 @@ import Link from "next/link";
 import TodoCard from "../comps/TodoCard";
 import { useEffect } from "react";
 import { BsHandThumbsUpFill } from "react-icons/bs";
+import Addtask from "../comps/Addtask"
+
+
 const GettingStarted = () => {
   useEffect(() => {
     console.log("use effect");
@@ -48,7 +51,13 @@ const GettingStarted = () => {
         }}
       >
         <TodoCard text="SAMAN ASDASD" />
+    
       </div>
+      
+      <div style={{position:"absolute",bottom:"20px",margin: "0 auto",width:"83.3vw"}}>
+      <Addtask text="SAMAN ASDASD" />
+      </div>
+     
     </div>
   );
 };
