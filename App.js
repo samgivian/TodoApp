@@ -23,16 +23,17 @@ type Query{
 }`;
 
 const resolvers = {
-    Query:{
-        posts:()=>{
-            return admin.database().ref('Tasks').once("value").then(
-                snap=>snap.val()
-            ).then(val => Object.keys(val).map(
-                key => val
-            ) )
-        }
+    Query: {
+        posts: () =>
+        admin
+          .database()
+          .ref("Tasks")
+          .once("value")
+          .then(snap => snap.val())
+          .then(val => Object.keys(val).map(key => val[key]))
     }
-}
+  };
+
 
 const app = express();
 async function startApolloServer(typeDefs, resolvers){

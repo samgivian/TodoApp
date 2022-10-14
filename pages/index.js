@@ -5,18 +5,15 @@ import Link from 'next/link'
 
 import { useQuery,ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 const client = new ApolloClient({
-  uri: 'https://flyby-gateway.herokuapp.com/',
+  uri: 'http://localhost:4000/graphql',
   cache: new InMemoryCache(),
 });
 const GET_LOCATIONS = gql`
-  query GetLocations {
-    locations {
-      id
-      name
-      description
-      photo
-    }
+query Posts {
+  posts {
+    Job
   }
+}
 `;
 
 function DisplayLocations() {
@@ -24,23 +21,20 @@ function DisplayLocations() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-
-  return data.locations.map(({ id, name, description, photo }) => (
-    <div key={id}>
-      <h3>{name}</h3>
-      <img width="400" height="250" alt="location-reference" src={`${photo}`} />
-      <br />
-      <b>About this location:</b>
-      <p>{description}</p>
-      <br />
-    </div>
-  ));
+    return data.posts.map(({ Job}) => (
+      <div >
+        <h3 style ={{color:"black"}}>{Job}</h3>
+      
+      </div>
+    ));
 }
 
 export default function Home() {
   return (
     <div>
-  
+    <ApolloProvider client={client}>
+      <DisplayLocations></DisplayLocations>
+    </ApolloProvider>
 <div className={styles.container}>
       <h1>asdasd</h1>
     </div>
