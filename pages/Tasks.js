@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 const Tasks = () => {
-  useEffect(() => {
-    console.log("use effect");
-  }, []);
+ 
   return (
     <div
       style={{

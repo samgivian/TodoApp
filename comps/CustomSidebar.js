@@ -48,52 +48,7 @@ const CustomSidebar = () => {
       </p>
       <p style={{ fontSize: "12px" }}> samgivian2015@gmail.com</p>
 
-      {/* My Day */}
-      <div
-        style={{
-          backgroundColor: "transparent",
-          outline: "none",
-          border: "none",
-          width: "14vw",
-          height: "20px",
-        }}
-        onClick={() => activateLasers()}
-      >
-        <Link href="/MyDay">
-          <a>
-            <BsFillSunFill
-              style={{
-                width: "20px",
-                height: "20px",
-                marginBottom: "2px",
-                color: "yellow",
-              }}
-            />
-            <p style={{ display: "inline-block", marginLeft: "5px",color:"yellow" }}>
-              My Day
-            </p>
-          </a>
-        </Link>
-      </div>
-
-      {/* Important */}
-      <div
-        style={{
-          backgroundColor: "transparent",
-          outline: "none",
-          border: "none",
-          width: "14vw",
-          height: "20px",
-          marginTop: "20px",
-        }}
-        onClick={() => activateLasers()}
-      >
-        <BsFillStarFill
-          style={{ width: "20px", height: "20px", marginBottom: "5px" }}
-        />
-        <p style={{ display: "inline-block", marginLeft: "5px" }}>Important</p>
-      </div>
-
+  
       {/* All */}
       <div
         style={{
