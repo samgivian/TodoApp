@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useEffect } from "react";
+import Addtask from "../comps/Addtask"
+
 const Tasks = () => {
- 
   return (
     <div
       style={{
@@ -13,10 +14,8 @@ const Tasks = () => {
         height: "100%",
       }}
     >
-      <h1>Hello Tasks</h1>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
+      <h1 style={{textAlign:"center"}}>Tasks</h1>
+      <Addtask page="Tasks" />
     </div>
   );
 };

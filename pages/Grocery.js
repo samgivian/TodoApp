@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
+import Addtask from "../comps/Addtask"
+
 const Grocery = () => {
   useEffect(() => {
     console.log("use effect");
@@ -15,10 +17,9 @@ const Grocery = () => {
         height: "100%",
       }}
     >
-      <h1>Hello Grocery</h1>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
+
+      <h1 style={{textAlign:"center",color:'black',fontWeight:"bold"}}>Grocery</h1>
+      <Addtask page="Grocery" />
     </div>
   );
 };

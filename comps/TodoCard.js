@@ -20,9 +20,10 @@ const DELETE = gql`
 const TodoCard = (props) => {
   const [Delete_, { data }] = useMutation(DELETE);
   function deleteTask() {
-    Delete_({ variables: { id:props.id , page: props.StoreType } })
+    Delete_({ variables: { id:props.id , page: props.page } })
+    alert("Refresh to see the item gone");
     console.log(props.id)
-    console.log(props.StoreType)
+    console.log(props.page)
     console.log(props.Job)
   }
   return (

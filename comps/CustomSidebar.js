@@ -8,7 +8,7 @@ import {
   BsFillLightbulbFill,
   BsHouseFill,
   BsFillSkipStartFill,
-  BsHandThumbsUpFill
+  BsHandThumbsUpFill,
 } from "react-icons/bs";
 
 import { IoIosSettings } from "react-icons/io";
@@ -48,7 +48,6 @@ const CustomSidebar = () => {
       </p>
       <p style={{ fontSize: "12px" }}> samgivian2015@gmail.com</p>
 
-  
       {/* All */}
       <div
         style={{
@@ -61,10 +60,14 @@ const CustomSidebar = () => {
         }}
         onClick={() => activateLasers()}
       >
-        <BsFillLightbulbFill
-          style={{ width: "20px", height: "20px", marginBottom: "5px" }}
-        />
-        <p style={{ display: "inline-block", marginLeft: "5px" }}>All</p>
+        <Link href="/">
+          <a>
+            <BsFillLightbulbFill
+              style={{ width: "20px", height: "20px", marginBottom: "5px" }}
+            />
+            <p style={{ display: "inline-block", marginLeft: "5px" }}>All</p>
+          </a>
+        </Link>
       </div>
 
       {/* Grocessory */}
@@ -150,7 +153,7 @@ const CustomSidebar = () => {
       >
         <Link href="/GettingStarted">
           <a>
-            <  BsHandThumbsUpFill
+            <BsHandThumbsUpFill
               style={{
                 width: "20px",
                 height: "20px",
@@ -158,13 +161,20 @@ const CustomSidebar = () => {
                 color: "orange",
               }}
             />
-            <p style={{ display: "inline-block", marginLeft: "5px",color:"orange" }}>Getting Started</p>
+            <p
+              style={{
+                display: "inline-block",
+                marginLeft: "5px",
+                color: "orange",
+              }}
+            >
+              Getting Started
+            </p>
           </a>
         </Link>
       </div>
       {/* End Getting Started */}
 
-      
       {/* Setting */}
       <div
         style={{

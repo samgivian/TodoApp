@@ -2,11 +2,11 @@ import Link from "next/link";
 import { useEffect } from "react";
 import Addtask from "../comps/Addtask"
 
-const Home = () => {
+const All = () => {
   return (
     <div
       style={{
-        backgroundImage: `url("https://ze-robot.com/images/source/39666.jpg")`,
+        backgroundImage: `url("https://i.imgur.com/LArzY0A.png")`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -14,9 +14,9 @@ const Home = () => {
         height: "100%",
       }}
     >
-      <h1 style={{textAlign:"center",color:'black'}}>All</h1>
-      <Addtask page="All" />
+      <h1 style={{textAlign:"center"}}>Tasks</h1>
+      <Addtask page="Tasks" />
     </div>
   );
 };
-export default Home;
+export default All;

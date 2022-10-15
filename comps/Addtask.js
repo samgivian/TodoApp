@@ -32,32 +32,37 @@ const GET_LOCATIONS = gql`
     }
   }
 `;
-const Query = (StoreType) => {
+const Query = (page) => {
   const { loading, error, data } = useQuery(GET_LOCATIONS, {
-    variables: { text: "GettingStarted" },
+    variables: { text: page },
     notifyOnNetworkStatusChange: true,
     fetchPolicy: "network-only",
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  return data.posts.map(({ Job,id }) => <TodoCard Job={Job} id={id} StoreType={StoreType}/>);
+  return data.posts.map(({ Job,id }) => <TodoCard Job={Job} id={id} page={page}/>);
 };
 
 const Addtask = (props) => {
   const [getLazyQuery, { loading, error, dataq }] = useLazyQuery(GET_LOCATIONS);
-
+  let listItems 
   let input;
   const [addTodo, { data }] = useMutation(ADD_TODO);
-
-  let listItems = Query("GettingStarted");
+  if(props.page ==="All"){
+    listItems = [Query("GettingStarted"),Query("Tasks"),Query("Grocery")]
+  }
+  else{
+     listItems = Query(props.page);
+  }
+  
 
   function submitTask() {
     addTodo({ variables: { text: input.value, page: props.page } }).then((e) =>
       setTimeout(() =>
         console.log(
           getLazyQuery({
-            variables: { text: "GettingStarted" },
+            variables: { text: props.page },
             notifyOnNetworkStatusChange: true,
             fetchPolicy: "network-only",
           }),
