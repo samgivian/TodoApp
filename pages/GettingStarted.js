@@ -3,7 +3,7 @@ import TodoCard from "../comps/TodoCard";
 import { useEffect } from "react";
 import { BsHandThumbsUpFill } from "react-icons/bs";
 import Addtask from "../comps/Addtask"
-
+import Query from "../comps/Query";
 
 const GettingStarted = () => {
   useEffect(() => {
@@ -40,25 +40,30 @@ const GettingStarted = () => {
         </h2>
       </div>
       {/* End Header*/}
-      <Link href="/">
-        <a>Home</a>
-      </Link>
+      
       <div
         style={{
-          display: "flex",
+         padding:"20px",
+          width:"83.3vw",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <TodoCard text="SAMAN ASDASD" />
+      <Query text="GettingStarted"/>
     
       </div>
       
       <div style={{position:"absolute",bottom:"20px",margin: "0 auto",width:"83.3vw"}}>
-      <Addtask text="SAMAN ASDASD" />
+      <Addtask/>
+    
       </div>
      
     </div>
   );
 };
 export default GettingStarted;
+/*
+<Link href="/">
+        <a>Home</a>
+      </Link>
+      */

@@ -19,7 +19,7 @@ type Post{
     Job:String
 }
 type Query{
-    posts:[Post]  
+    posts(text:String!):[Post]  
 }
 type Mutation {
   addTodo(text:String!):String!
@@ -36,21 +36,25 @@ mutation AddNewPet ($name: String!, $petType: PetType) {
     addPet (name: String!, petType: PetType): AddPetResult!
   }
 */
+
 const resolvers = {
     Query: {
-        posts: () =>
-        admin
+        posts: async (root, args, context)=>{
+          console.log("test"+args.text);
+        return admin
           .database()
-          .ref("Tasks")
+          .ref("Tasks/"+args.text)
           .once("value")
           .then(snap => snap.val())
           .then(val => Object.keys(val).map(key => val[key]))
+         
+        }
     },
     Mutation: {
       addTodo: async (root, args, context) => {
         console.log("clicks");
         console.log(args.text);
-        //admin.database().ref("Tasks/").push(args.text);
+       admin.database().ref("Tasks/").push({"Job":args.text});
           return ("SS")
       }
       }
