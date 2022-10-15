@@ -22,7 +22,7 @@ type Query{
     posts(text:String!):[Post]  
 }
 type Mutation {
-  addTodo(text:String!):String!
+  addTodo(text:String!,page:String!):String!
 }
 `;
 /*
@@ -54,7 +54,8 @@ const resolvers = {
       addTodo: async (root, args, context) => {
         console.log("clicks");
         console.log(args.text);
-       admin.database().ref("Tasks/").push({"Job":args.text});
+        console.log(args.page);
+       admin.database().ref("Tasks/GettingStarted").push({"Job":args.text});
           return ("SS")
       }
       }

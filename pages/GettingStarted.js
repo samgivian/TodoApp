@@ -6,9 +6,7 @@ import Addtask from "../comps/Addtask"
 import Query from "../comps/Query";
 
 const GettingStarted = () => {
-  useEffect(() => {
-    console.log("use effect");
-  }, []);
+
   return (
     <div
       style={{
@@ -54,7 +52,7 @@ const GettingStarted = () => {
       </div>
       
       <div style={{position:"absolute",bottom:"20px",margin: "0 auto",width:"83.3vw"}}>
-      <Addtask/>
+      <Addtask page="GettingStarted" />
     
       </div>
      

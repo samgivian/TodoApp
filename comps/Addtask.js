@@ -14,108 +14,63 @@ import {
 } from "@apollo/client";
 
 const ADD_TODO = gql`
-  mutation AddTodo($text: String!) {
-    addTodo(text: $text)
+  mutation AddTodo($text: String!,$page: String!) {
+    addTodo(text: $text, page: $page)
   }
 `;
 
-var a = "Asd";
-const AddTodo = (task) => {
-  console.log("button click");
-  console.log(task);
-};
-//const [task, setTask] = useState("");
-const Addtask = () => {
-  const [task, setTask] = useState("a");
-  function handleClick() {
-    console.log(task);
-    setTask("asd")
-  }
-  function handleChange(event) {
-    console.log(event.target.value);
-    setTask(event.target.value)
-  }
-  return (
-    <div>
-      {/* ... */}
-      <button onClick={handleClick}>Like</button>
-      <input
-      type="text"
-      name="firstName"
-      onChange={handleChange}
-    />
-    
-    </div>
-  );
-}
-export default Addtask;
 
-/*
-function AddTodo() {
+const Addtask = (props) => {
   let input;
   const [addTodo, { data, loading, error }] = useMutation(ADD_TODO);
   if (loading) return "Submitting...";
   if (error) return `Submission error! ${error.message}`;
+
+  function test(){
+    addTodo({ variables: { text: input.value,page: props.page} });
+    window.location.reload(false);
+  }
+
   return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          addTodo({ variables: { text: input.value } });
-          input.value = "";
-        }}
-      >
-        <input
-          ref={(node) => {
+    <div style={{ width: "70vw", margin: "auto" }}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        test();
+        input.value = "";
+      }}
+    >
+        <InputGroup style={{ width: "70vw", margin: "auto" }}>
+      
+        <InputGroup.Text id="basic-addon1" >
+        <button  style={{border:"none",width:"100%",height:"100%"}}  type="submit">
+          <IoIosAddCircle 
+            style={{
+              width: "20px",
+              height: "20px",
+              color: "grey",
+            }}
+         
+          />
+            </button >
+                </InputGroup.Text>
+        
+  
+        <Form.Control
+           ref={(node) => {
             input = node;
           }}
+          placeholder="Add task"
+          aria-label="Add task"
+          aria-describedby="basic-addon1"
         />
-        <button type="submit">Add Todo</button>
-      </form>
-    </div>
+      </InputGroup>
+     
+      
+    </form>
+  </div>
+
   );
 }
-*/
+export default Addtask;
 
-
-/*
-<InputGroup style={{ width: "70vw", margin: "auto" }}>
-        <InputGroup.Text id="basic-addon1">
-          <IoIosAddCircle
-            style={{
-              width: "20px",
-              height: "20px",
-              color: "grey",
-            }}
-          />
-        </InputGroup.Text>
-        <Form.Control
-          
-          placeholder="Add task"
-          aria-label="Add task"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-
-      */
-
-      /*
-        <InputGroup style={{ width: "70vw", margin: "auto" }}>
-        <InputGroup.Text id="basic-addon1">
-          <IoIosAddCircle
-            style={{
-              width: "20px",
-              height: "20px",
-              color: "grey",
-            }}
-          />
-        </InputGroup.Text>
-        <Form.Control
-       
-        onChange={(e)=>{handleChange(e)}}
-          placeholder="Add task"
-          aria-label="Add task"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-      */
