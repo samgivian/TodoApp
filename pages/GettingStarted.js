@@ -38,24 +38,7 @@ const GettingStarted = () => {
         </h2>
       </div>
       {/* End Header*/}
-      
-      <div
-        style={{
-         padding:"20px",
-          width:"83.3vw",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-      <Query text="GettingStarted"/>
-    
-      </div>
-      
-      <div style={{position:"absolute",bottom:"20px",margin: "0 auto",width:"83.3vw"}}>
       <Addtask page="GettingStarted" />
-    
-      </div>
-     
     </div>
   );
 };
